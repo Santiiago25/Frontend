@@ -1,0 +1,180 @@
+/* src/components/MainPage.css */
+
+/* Bloque principal */
+.main-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7; /* Fondo general de la página */
+  min-height: 100vh; /* Asegura que la página tenga al menos el 100% de la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Cambiado a flex-start para evitar espacio vacío innecesario */
+  overflow: auto; /* Permite scroll si el contenido excede la pantalla */
+  margin-bottom: 0; /* Evita márgenes adicionales en la parte inferior */
+}
+
+/* Asegura que el bloque principal se divida correctamente entre contenido y footer */
+.main-page__content {
+  flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
+}
+
+/* Navbar con los libros populares */
+.main-page__navbar {
+  background: linear-gradient(135deg, #5f7081, #35475a); /* Gradiente desde #46607a hacia un color más oscuro */
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 1px;
+  position: relative; /* Necesario para posicionar el texto de ofertas */
+}
+
+/* Animación para el efecto shaking y zoom */
+@keyframes shakeAndZoom {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-10px) scale(1.1);
+  }
+  50% {
+    transform: translateX(10px) scale(1.1);
+  }
+  75% {
+    transform: translateX(-10px) scale(1.1);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Estilos para el texto de ofertas */
+.main-page__offer-text {
+  position: absolute;
+  top: 50%;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  animation: shakeAndZoom 2s ease-in-out infinite; /* Aplicamos la animación */
+  display: flex;
+  align-items: center; /* Para alinear el texto y la imagen verticalmente */
+}
+
+.main-page__offer-text--left {
+  margin-left: 110px;
+  bottom: 200px;
+  left: 0;
+  animation: shakeAndZoom 1.2s ease-in-out infinite reverse; /* Movimiento hacia la derecha */
+}
+
+.main-page__offer-text--right {
+  margin-right: 110px;
+  bottom: 200px;
+  right: 0;
+  animation: shakeAndZoom 1.2s ease-in-out infinite; /* Movimiento hacia la izquierda */
+}
+
+/* Estilo para la imagen de la oferta */
+.main-page__offer-icon {
+  width: 100px; /* Tamaño de la imagen */
+  height: auto;
+  margin-left: 10px; /* Espacio entre el texto y la imagen */
+}
+
+.main-page__popular-books-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.main-page__popular-book-image {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.main-page__popular-book-image:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.search-bar__input {
+  padding: 10px;
+  width: 300px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilos para la lista de libros */
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%; /* Asegura que ocupe siempre el 100% del ancho */
+  min-height: 500px; /* Asegura que haya suficiente espacio si no hay libros */
+}
+
+.book-list__item {
+  width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 15px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-list__item:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.book-list__image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.book-list__title {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.book-list__author,
+.book-list__subtitle,
+.book-list__rating,
+.book-list__pages,
+.book-list__language {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.book-list__rating {
+  color: #f39c12; /* Estilo dorado para las estrellas */
+}
+
+/* Footer */
+.main-page__footer {
+  background: linear-gradient(135deg, #6d88a3, #35475a); /* Gradiente similar al navbar */
+  color: #fff;
+  padding: 40px 0; /* Eliminar relleno lateral */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  position: relative; /* Para asegurar que no haya desplazamiento innecesario */
+  text-align: center;
+  margin-top: 0; /* Eliminar cualquier margen superior */
+  margin-bottom: 0; /* Eliminar cualquier margen inferior */
+}
